@@ -57,7 +57,7 @@ RegisterCommand("livery", function(source, args, rawCommand)
         lib.notify({
             title = 'Error:',
             description = 'You must specify a livery number',
-            type = 'false'
+            type = 'error'
         })
         return
     end
@@ -65,8 +65,8 @@ RegisterCommand("livery", function(source, args, rawCommand)
     local liveryNumber = tonumber(args[1])
     local vehicle = GetVehiclePedIsIn(player, true)
 
-    if livery and livery >= 0 then
-        if livery < GetVehicleLiveryCount(vehicle) then
+    if liveryNumber and liveryNumber >= 0 then
+        if liveryNumber < GetVehicleLiveryCount(vehicle) then
             SetVehicleLivery(vehicle, liveryNumber)
         else
             lib.notify({
